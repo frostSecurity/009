@@ -1,0 +1,19 @@
+list=$( find /$1 -mindepth 1 -mtime -1 -print )
+if [ -d date +%Y%m%d ]
+then
+true
+else
+mkdir date +%Y%m%d
+fi
+for direction in $list
+do
+sudo cp -r $direction date +%Y%m%d
+done
+
+
+echo 192.168.1.{0..5} > ip.txt
+for p in $( cat ip.txt )
+do
+nc -z -v  $p 80
+nc -z -v -w 1  $p 443
+done
