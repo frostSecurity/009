@@ -1,0 +1,47 @@
+########
+# Dockerfile to build mysql:5.7 container images/
+########
+FROM mysql:5.7
+
+MAINTAINER goncharova@ukr.net
+
+RUN apt-get update
+
+ENV MYSQL_ROOT_PASSWORD MyRootPassword
+ENV MYSQL_DATABASE tsimbalyuk
+ENV MYSQL_USER UserName
+ENV MYSQL_PASSWORD MyUserPassword
+
+EXPOSE 3306
+
+
+########
+# Dockerfile to build Ubuntu container images
+# Based on Ubuntu
+########
+FROM ubuntu:18.04 as base
+MAINTAINER <tsimbalyuk1999a@ukr.net>
+
+RUN apt-get update && \
+    apt-get install -y apache2 && \
+    /etc/init.d/apache2 start 
+
+
+EXPOSE 8081
+ENTRYPOINT tail -f /dev/null
+
+
+
+
+version: '3.0'
+services:
+  ubuntu:
+    build:
+      context: ./ubuntu_docker
+      dockerfile: Dockerfile
+#      links: 
+#        - mysql
+  mysql:
+    build:
+      context: ./mysql:5.7_docker
+      dockerfile: Dockerfile
