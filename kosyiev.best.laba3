@@ -1,10 +1,12 @@
-FROM ubuntu:18.04 as base
-MAINTAINER <tsimbalyuk1999@ukr.net>
+#інформація про користувача та образ
+FROM centos:lates
+LABEL mintainer="tsimbalyuk1999@ukr.net"
 
-RUN apt-get update && \
-    apt-get install -y apache2 && \
-    /etc/init.d/apache2 start 
+#встановлення apache
+RUN yum update
+CMD yum install -y apache
+CMD tail -f del/null
 
-
+#потр на якому повинен працювати apache
 EXPOSE 8081
-ENTRYPOINT tail -f /dev/null
+
