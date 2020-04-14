@@ -5,7 +5,7 @@ LABEL mintainer="tsimbalyuk1999@ukr.net"
 #встановлення apache
 RUN yum update
 CMD yum install -y apache
-CMD tail -f del/null
+
 
 #потр на якому повинен працювати apache
 EXPOSE 8081
