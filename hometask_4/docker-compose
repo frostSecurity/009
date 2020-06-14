@@ -1,4 +1,15 @@
 version: '3'
-services:
+services: 
+  web:
+    build: ./apache
+    restart: always
+    ports:
+      - "8081:8081"
+      
+  db:
+    build: ./db
+    restart: always
+    ports:
+      - "3306:3306"
 
 
