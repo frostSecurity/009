@@ -1,9 +1,0 @@
-FROM mysql:5.7
-
-
-ENV my_root_password="1q2w3e4r5t6y"
-ENV my_lastneme="Pupkin"
-ENV my_usename="Vaciliy"
-ENV my_password="user"
-
-EXPOSE 3306
