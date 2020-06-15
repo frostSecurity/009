@@ -1,2 +1,2 @@
 #!/bin/bash
-echo <Tsimbalyuk Myykola Oleksandrovich Polonne>
+echo 'Tsimbalyuk Myykola Oleksandrovich Polonne'
