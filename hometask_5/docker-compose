@@ -1,0 +1,21 @@
+version: '3'
+services:
+
+  
+  webserver:
+      image: bitnami/apache:latest
+      restart: always
+      ports:
+        - "80:8080"
+       
+  
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      my_root_password="1q2w3e4r5t6y"
+      my_lastneme="Pupkin"
+      my_usename="Vaciliy"
+      my_password="user"
+    ports:
+      - "3306:3306"
