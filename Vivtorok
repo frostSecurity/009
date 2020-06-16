@@ -1,0 +1,4 @@
+From ubuntu:18.04/ 
+RUN docker ps
+    docker pull ubuntu
+    docker run -it ubuntu
